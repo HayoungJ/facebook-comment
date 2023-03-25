@@ -13,8 +13,24 @@ const CommentInput = () => {
     setValue(event.target.innerText);
   };
 
+  const handleEnter = (event) => {
+    const { code, altKey, ctrlKey, metaKey, shiftKey, nativeEvent } = event;
+    if (
+      code === 'Enter' &&
+      !altKey &&
+      !ctrlKey &&
+      !metaKey &&
+      !shiftKey &&
+      nativeEvent.isComposing === false
+    ) {
+      console.log(event);
+      event.preventDefault();
+      handleSubmit();
+    }
+  };
+
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event?.preventDefault();
     console.log(value);
     setValue('');
     inputRef.current.innerText = '';
@@ -35,6 +51,7 @@ const CommentInput = () => {
             className={styles['input__textarea--value']}
             contentEditable="true"
             onInput={handleInput}
+            onKeyDown={handleEnter}
           />
           {isPlaceholder && (
             <div className={styles['input__textarea--placeholder']}>
