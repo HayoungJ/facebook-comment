@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+
+.post {
+  width: 680px;
+
+  border-radius: 8px;
+
+  margin: 0 auto;
+
+  background-color: $content-bg-color;
+
+  .post__header {
+    display: flex;
+    flex-flow: row nowrap;
+
+    width: 100%;
+
+    padding: 12px 16px;
+
+    .post__profile {
+      width: 40px;
+      height: 40px;
+    }
+
+    .post__info {
+      flex: 1;
+
+      margin-left: 10px;
+    }
+  }
+
+  .post__content {
+    padding: 0 16px;
+
+    font-size: $text-large-size;
+
+    line-height: 1.5;
+  }
+
+  .post__comments-count {
+    margin: 0 16px;
+    padding: 6px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    text-align: right;
+    line-height: 1.5;
+  }
+}
+
+.post__info {
+  .post__name {
+    margin-top: 4px;
+
+    font-weight: $text-bold;
+
+    line-height: 20px;
+  }
+
+  .post__time {
+    font-size: $text-small-size;
+  }
+}
