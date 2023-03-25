@@ -4,11 +4,20 @@ import profileImage from '../../../assets/images/default_profile.png';
 import { useEffect, useRef, useState } from 'react';
 
 const CommentInput = () => {
+  const inputRef = useRef();
+
   const [value, setValue] = useState('');
   const [isPlaceholder, setIsPlaceholder] = useState(true);
 
   const handleInput = (event) => {
     setValue(event.target.innerText);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(value);
+    setValue('');
+    inputRef.current.innerText = '';
   };
 
   useEffect(() => {
@@ -19,9 +28,10 @@ const CommentInput = () => {
   return (
     <div className={styles.comment__input}>
       <img className={styles.input__profile} src={profileImage} alt="profile" />
-      <form className={styles.input__form}>
+      <form className={styles.input__form} onSubmit={handleSubmit}>
         <div className={styles.input__textarea}>
           <div
+            ref={inputRef}
             className={styles['input__textarea--value']}
             contentEditable="true"
             onInput={handleInput}
@@ -32,7 +42,11 @@ const CommentInput = () => {
             </div>
           )}
         </div>
-        <button className={styles.input__submit}>
+        <button
+          className={`${styles.input__submit} ${
+            value.length > 0 && styles['input__submit--active']
+          }`}
+        >
           <span>등록</span>
         </button>
       </form>

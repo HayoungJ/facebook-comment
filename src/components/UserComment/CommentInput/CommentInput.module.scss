@@ -23,23 +23,6 @@
     background-color: $comment-bg-color;
 
     border-radius: 18px;
-
-    .input__submit {
-      width: 32px;
-      height: 32px;
-
-      margin: 0 10px 8px auto;
-
-      background: no-repeat center / 16px 16px
-        url(../../../assets/images/submit_disabled.png);
-
-      span {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-      }
-    }
   }
 }
 
@@ -65,5 +48,30 @@
     left: 12px;
 
     color: $text-secondary-color;
+  }
+}
+
+.input__submit {
+  width: 32px;
+  height: 32px;
+
+  margin: 0 10px 8px auto;
+
+  background: no-repeat center / 16px 16px
+    url(../../../assets/images/submit_disabled.png);
+
+  cursor: not-allowed;
+
+  &.input__submit--active {
+    background-image: url(../../../assets/images/submit.png);
+
+    cursor: pointer;
+  }
+
+  span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 }
