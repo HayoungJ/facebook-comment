@@ -115,7 +115,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -126,4 +126,12 @@ table {
 /* custom */
 div {
   box-sizing: border-box;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
