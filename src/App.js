@@ -1,12 +1,12 @@
-import "./App.scss";
-import UserPost from "./components/UserPost/UserPost";
+import './App.scss';
+import UserPost from './components/UserPost/UserPost';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <UserPost />
     </div>
   );
-}
+};
 
 export default App;
