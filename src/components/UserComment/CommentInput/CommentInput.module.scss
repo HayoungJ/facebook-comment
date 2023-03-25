@@ -1,0 +1,69 @@
+@import '../../../styles/variables.scss';
+
+.comment__input {
+  display: flex;
+  flex-flow: row nowrap;
+
+  width: 100%;
+
+  padding: 0 16px;
+
+  .input__profile {
+    width: 32px;
+    height: 32px;
+  }
+
+  .input__form {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+
+    margin-left: 10px;
+
+    background-color: $comment-bg-color;
+
+    border-radius: 18px;
+
+    .input__submit {
+      width: 32px;
+      height: 32px;
+
+      margin: 0 10px 8px auto;
+
+      background: no-repeat center / 16px 16px
+        url(../../../assets/images/submit_disabled.png);
+
+      span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.input__textarea {
+  position: relative;
+
+  padding: 8px 12px;
+
+  .input__textarea--value,
+  .input__textarea--placeholder {
+    line-height: 1.3rem;
+  }
+
+  .input__textarea--value {
+    width: calc(100% - 24px);
+
+    outline: 0;
+  }
+
+  .input__textarea--placeholder {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+
+    color: $text-secondary-color;
+  }
+}
