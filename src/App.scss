@@ -1,0 +1,13 @@
+@import "./styles/_variables.scss";
+
+.App {
+  width: 100vw;
+  height: 100vh;
+
+  padding: 30px 0;
+
+  background-color: $app-bg-color;
+
+  font-size: 15px;
+  color: $text-default-color;
+}
