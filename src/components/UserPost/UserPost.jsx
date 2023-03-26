@@ -1,8 +1,12 @@
-import styles from './UserPost.module.scss'
+import styles from './UserPost.module.scss';
 
-import profileImage from '../../assets/images/default_profile.png'
+import profileImage from '../../assets/images/default_profile.png';
+import UserComments from '../UserComment/UserComments';
+import { useComments } from '../../contexts/CommentContext';
 
 const UserPost = () => {
+  const [comments, setComments] = useComments();
+
   return (
     <article className={styles.post}>
       <div className={styles.post__header}>
@@ -23,9 +27,14 @@ const UserPost = () => {
         <br />
         작성한 댓글/답글/좋아요는 해당 브라우저에서만 확인할 수 있습니다.
       </div>
-      <div className={styles['post__comments-count']}>댓글 n개</div>
+      {comments && (
+        <div className={styles['post__comments-count']}>
+          댓글 {comments.length}개
+        </div>
+      )}
+      <UserComments />
     </article>
-  )
-}
+  );
+};
 
-export default UserPost
+export default UserPost;
