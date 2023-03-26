@@ -1,7 +1,7 @@
 import styles from './UserComments.module.scss';
 
 import CommentInput from './CommentInput/CommentInput';
-import { useComments } from '../../contexts/CommentContext';
+import { useComments } from '../../contexts/CommentsContext';
 import { useState, useEffect } from 'react';
 import CommentList from './CommentList/CommentList';
 
@@ -10,25 +10,14 @@ const UserComments = () => {
 
   const [comments, setComments] = useComments();
 
-  const updateObject = (obj, keys, value) => {
-    const updatedKeys = [...keys];
-    const key = updatedKeys.shift();
-    if (updatedKeys.length) {
-      obj[key] = obj[key] || {};
-      updateObject(obj[key], updatedKeys, value);
-    } else {
-      obj[key] = value;
-    }
-  };
-
   useEffect(() => {
     if (!comments) return;
 
     let computed = {};
     comments.forEach((comment) => {
-      const { depths, id } = comment;
+      const { parent, id } = comment;
 
-      if (!depths.length) {
+      if (!parent) {
         computed[id] = {
           ...comment,
           replies: {},
@@ -36,14 +25,7 @@ const UserComments = () => {
         return;
       }
 
-      const keys = depths.reduce((result, depth) => {
-        result.push(depth);
-        result.push('replies');
-        return result;
-      }, []);
-      keys.push(id);
-
-      updateObject(computed, keys, { ...comment, replies: {} });
+      computed[parent].replies[id] = comment;
     });
 
     setList(computed);
