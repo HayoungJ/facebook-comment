@@ -1,0 +1,96 @@
+@import '../../../styles/variables.scss';
+
+.comment__wrap {
+  .comment__wrap {
+    padding-left: 42px;
+
+    .comment__content {
+      .comment__profile {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.comment {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .comment__content {
+    display: flex;
+    flex-flow: row nowrap;
+
+    .comment__profile {
+      width: 32px;
+      height: 32px;
+
+      margin-top: 2px;
+    }
+  }
+}
+
+.comment__text {
+  position: relative;
+
+  margin-left: 6px;
+  padding: 8px 12px;
+
+  background-color: $comment-bg-color;
+
+  border-radius: 18px;
+
+  h4 {
+    margin-top: 2px;
+    font-size: $text-medium-size;
+    font-weight: $text-bold;
+  }
+
+  p {
+    margin: 2px 0 -2px;
+
+    line-height: 1.3rem;
+    word-break: break-word;
+  }
+
+  &.comment__text--like {
+    &::after {
+      position: absolute;
+      bottom: 5px;
+      right: -13px;
+      content: '';
+      display: block;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: no-repeat center / 18px 18px
+        url(../../../assets/images/like.png) $comment-bg-color;
+    }
+  }
+}
+
+.comment__buttons {
+  display: flex;
+  flex-flow: row nowrap;
+
+  margin-left: 42px;
+  padding: 3px 0;
+
+  button {
+    margin: 0 6px;
+
+    font-size: $text-small-size;
+    font-weight: $text-bold;
+    color: $text-secondary-color;
+
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.comment__button--active {
+      color: $text-accent-color;
+    }
+  }
+}
