@@ -37,9 +37,14 @@
   }
 
   .input__textarea--value {
+    position: relative;
     width: calc(100% - 24px);
 
     outline: 0;
+
+    word-break: break-word;
+    cursor: text;
+    z-index: 10;
   }
 
   .input__textarea--placeholder {
