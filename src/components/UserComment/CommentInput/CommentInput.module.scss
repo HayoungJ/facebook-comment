@@ -6,7 +6,16 @@
 
   width: 100%;
 
-  padding: 0 16px;
+  margin-bottom: 6px;
+
+  &.comment__input--small {
+    padding-left: 42px;
+
+    .input__profile {
+      width: 24px;
+      height: 24px;
+    }
+  }
 
   .input__profile {
     width: 32px;
@@ -18,7 +27,7 @@
     flex-flow: column nowrap;
     flex: 1;
 
-    margin-left: 10px;
+    margin-left: 6px;
 
     background-color: $comment-bg-color;
 
