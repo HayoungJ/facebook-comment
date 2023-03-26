@@ -1,13 +1,17 @@
-import styles from './CommentInput.module.scss';
-
-import profileImage from '../../../assets/images/default_profile.png';
 import { useEffect, useRef, useState } from 'react';
 
-const CommentInput = () => {
+import { useComments } from '../../../contexts/CommentsContext';
+
+import styles from './CommentInput.module.scss';
+import profileImage from '../../../assets/images/default_profile.png';
+
+const CommentInput = ({ className = '', parent = null }) => {
   const inputRef = useRef();
 
   const [value, setValue] = useState('');
   const [isPlaceholder, setIsPlaceholder] = useState(true);
+
+  const [comments, setComments] = useComments();
 
   const handleInput = (event) => {
     setValue(event.target.innerText);
@@ -23,7 +27,6 @@ const CommentInput = () => {
       !shiftKey &&
       nativeEvent.isComposing === false
     ) {
-      console.log(event);
       event.preventDefault();
       handleSubmit();
     }
@@ -31,7 +34,16 @@ const CommentInput = () => {
 
   const handleSubmit = (event) => {
     event?.preventDefault();
-    console.log(value);
+
+    const newComment = {
+      parent,
+      id: Date.now(),
+      user: '전하영',
+      text: value,
+      createdTime: new Date(),
+    };
+    const updatedComments = comments ? [...comments, newComment] : [newComment];
+    setComments(updatedComments);
     setValue('');
     inputRef.current.innerText = '';
   };
@@ -42,7 +54,7 @@ const CommentInput = () => {
   }, [value]);
 
   return (
-    <div className={styles.comment__input}>
+    <div className={`${styles.comment__input} ${styles[className]}`}>
       <img className={styles.input__profile} src={profileImage} alt="profile" />
       <form className={styles.input__form} onSubmit={handleSubmit}>
         <div className={styles.input__textarea}>
