@@ -2,7 +2,7 @@ import styles from './UserPost.module.scss';
 
 import profileImage from '../../assets/images/default_profile.png';
 import UserComments from '../UserComment/UserComments';
-import { useComments } from '../../contexts/CommentContext';
+import { useComments } from '../../contexts/CommentsContext';
 
 const UserPost = () => {
   const [comments, setComments] = useComments();
