@@ -2,12 +2,15 @@
 
 .post {
   width: 680px;
+  max-height: 700px;
 
   border-radius: 8px;
 
   margin: 0 auto;
 
   background-color: $content-bg-color;
+
+  overflow: auto;
 
   .post__header {
     display: flex;
