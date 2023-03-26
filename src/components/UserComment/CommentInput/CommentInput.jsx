@@ -4,6 +4,7 @@ import { useComments } from '../../../contexts/CommentsContext';
 
 import styles from './CommentInput.module.scss';
 import profileImage from '../../../assets/images/default_profile.png';
+import { useReplies } from '../../../contexts/RepliesContext';
 
 const CommentInput = ({ className = '', parent = null }) => {
   const inputRef = useRef();
@@ -12,6 +13,7 @@ const CommentInput = ({ className = '', parent = null }) => {
   const [isPlaceholder, setIsPlaceholder] = useState(true);
 
   const [comments, setComments] = useComments();
+  const [replies, setReplies, focusedReply, setFocusedReply] = useReplies();
 
   const handleInput = (event) => {
     setValue(event.target.innerText);
@@ -30,6 +32,10 @@ const CommentInput = ({ className = '', parent = null }) => {
       event.preventDefault();
       handleSubmit();
     }
+  };
+
+  const handleFocus = () => {
+    setFocusedReply(parent);
   };
 
   const handleSubmit = (event) => {
@@ -64,6 +70,7 @@ const CommentInput = ({ className = '', parent = null }) => {
             contentEditable="true"
             onInput={handleInput}
             onKeyDown={handleEnter}
+            onFocus={handleFocus}
           />
           {isPlaceholder && (
             <div className={styles['input__textarea--placeholder']}>

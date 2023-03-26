@@ -67,6 +67,10 @@
         url(../../../assets/images/like.png) $comment-bg-color;
     }
   }
+
+  &.comment__text--focused {
+    background-color: $focused-bg-color;
+  }
 }
 
 .comment__buttons {

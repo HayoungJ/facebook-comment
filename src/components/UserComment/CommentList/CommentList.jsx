@@ -7,7 +7,7 @@ import { useReplies } from '../../../contexts/RepliesContext';
 const CommentList = ({ comments, parent = null }) => {
   const [likes, setLikes] = useState([]);
 
-  const [replies, setReplies] = useReplies();
+  const [replies, setReplies, focusedReply, setFocusedReply] = useReplies();
 
   const handleLike = (id) => {
     let updatedLikes = [...likes];
@@ -23,6 +23,7 @@ const CommentList = ({ comments, parent = null }) => {
     if (replies.includes(replyId)) return;
     updatedReplies.push(replyId);
     setReplies(updatedReplies);
+    setFocusedReply(replyId);
   };
 
   return (
@@ -38,6 +39,8 @@ const CommentList = ({ comments, parent = null }) => {
             <div
               className={`${styles.comment__text} ${
                 likes.includes(comment.id) && styles['comment__text--like']
+              } ${
+                focusedReply === comment.id && styles['comment__text--focused']
               }`}
             >
               <h4>{comment.user}</h4>
