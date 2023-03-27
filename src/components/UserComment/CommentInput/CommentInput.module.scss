@@ -72,12 +72,12 @@
   margin: 0 10px 8px auto;
 
   background: no-repeat center / 16px 16px
-    url(../../../assets/images/submit_disabled.png);
+    url(../../../assets/images/submit_disabled_button.png);
 
   cursor: not-allowed;
 
   &.input__submit--active {
-    background-image: url(../../../assets/images/submit.png);
+    background-image: url(../../../assets/images/submit_button.png);
 
     cursor: pointer;
   }

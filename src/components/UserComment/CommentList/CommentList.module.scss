@@ -66,7 +66,7 @@
       height: 22px;
       border-radius: 50%;
       background: no-repeat center / 18px 18px
-        url(../../../assets/images/like.png) $comment-bg-color;
+        url(../../../assets/images/like_badge.png) $comment-bg-color;
     }
   }
 
@@ -93,7 +93,7 @@
 
     &:hover {
       background: no-repeat center / 20px 20px
-        url(../../../assets/images/more.png) $comment-bg-color;
+        url(../../../assets/images/more_button.png) $comment-bg-color;
 
       cursor: pointer;
 
@@ -221,7 +221,7 @@
 
   padding: 8px 0;
 
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: $guide-bg-color;
 
   border-radius: 8px;
 
