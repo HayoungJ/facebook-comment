@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import styles from './CommentInput.module.scss';
+
+import profileImage from '../../../assets/images/default_profile.png';
 
 import { useComments } from '../../../contexts/CommentsContext';
-
-import styles from './CommentInput.module.scss';
-import profileImage from '../../../assets/images/default_profile.png';
 import { useReplies } from '../../../contexts/RepliesContext';
 
 const CommentInput = ({ className = '', parent = null }) => {

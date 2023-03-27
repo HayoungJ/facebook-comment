@@ -1,9 +1,10 @@
+import { useState, useEffect } from 'react';
 import styles from './UserComments.module.scss';
 
-import CommentInput from './CommentInput/CommentInput';
-import { useComments } from '../../contexts/CommentsContext';
-import { useState, useEffect } from 'react';
 import CommentList from './CommentList/CommentList';
+import CommentInput from './CommentInput/CommentInput';
+
+import { useComments } from '../../contexts/CommentsContext';
 
 const UserComments = () => {
   const [list, setList] = useState({});
