@@ -9,7 +9,7 @@ import { useComments } from '../../contexts/CommentsContext';
 const UserComments = () => {
   const [list, setList] = useState({});
 
-  const [comments, setComments] = useComments();
+  const [comments] = useComments();
 
   useEffect(() => {
     if (!comments) return;
