@@ -85,7 +85,7 @@ const CommentList = ({ comments, parent = null }) => {
                   menu === comment.id && styles['comment__menu--show']
                 }`}
               >
-                <li onClick={() => handleDelete(comment.id)}>삭제</li>
+                <li onMouseDown={() => handleDelete(comment.id)}>삭제</li>
               </ul>
             </div>
           </div>
