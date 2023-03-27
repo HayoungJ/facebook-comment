@@ -1,11 +1,16 @@
 import styles from './UserPost.module.scss';
 
 import profileImage from '../../assets/images/default_profile.png';
+
 import UserComments from '../UserComment/UserComments';
+
 import { useComments } from '../../contexts/CommentsContext';
+import { LikesProvider } from '../../contexts/LikesContext';
+import { RepliesProvider } from '../../contexts/RepliesContext';
+import { MenuProvider } from '../../contexts/MenuContext';
 
 const UserPost = () => {
-  const [comments, setComments] = useComments();
+  const [comments] = useComments();
 
   return (
     <article className={styles.post}>
@@ -27,12 +32,18 @@ const UserPost = () => {
         <br />
         작성한 댓글/답글/좋아요는 해당 브라우저에서만 확인할 수 있습니다.
       </div>
-      {comments && (
+      {comments && comments.length > 0 && (
         <div className={styles['post__comments-count']}>
           댓글 {comments.length}개
         </div>
       )}
-      <UserComments />
+      <LikesProvider>
+        <RepliesProvider>
+          <MenuProvider>
+            <UserComments />
+          </MenuProvider>
+        </RepliesProvider>
+      </LikesProvider>
     </article>
   );
 };
