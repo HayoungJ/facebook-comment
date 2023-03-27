@@ -8,7 +8,7 @@ export const RepliesProvider = ({ children }) => {
 
   return (
     <RepliesContext.Provider
-      value={[replies, setReplies, focusedReply, setFocusedReply]}
+      value={{ replies, setReplies, focusedReply, setFocusedReply }}
     >
       {children}
     </RepliesContext.Provider>

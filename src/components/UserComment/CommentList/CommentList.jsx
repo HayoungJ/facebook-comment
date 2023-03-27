@@ -13,7 +13,7 @@ const CommentList = ({ comments, parent = null }) => {
   const [rawComments, setComments] = useComments();
   const [likes, handleLike] = useLikes();
   const [menu, setMenu] = useMenu();
-  const [replies, setReplies, focusedReply, setFocusedReply] = useReplies();
+  const { replies, setReplies, focusedReply, setFocusedReply } = useReplies();
 
   const handleReply = (id) => {
     let updatedReplies = [...replies];

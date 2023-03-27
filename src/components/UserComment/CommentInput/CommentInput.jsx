@@ -13,7 +13,7 @@ const CommentInput = ({ className = '', parent = null }) => {
   const [isPlaceholder, setIsPlaceholder] = useState(true);
 
   const [comments, setComments] = useComments();
-  const [replies, setReplies, focusedReply, setFocusedReply] = useReplies();
+  const { setFocusedReply } = useReplies();
 
   const handleInput = (event) => {
     setValue(event.target.innerText);
