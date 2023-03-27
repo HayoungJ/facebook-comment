@@ -54,6 +54,8 @@
   }
 
   &.comment__text--like {
+    margin-right: 13px;
+
     &::after {
       position: absolute;
       bottom: 5px;
@@ -73,14 +75,108 @@
   }
 }
 
-.comment__buttons {
+.comment__delete {
+  position: relative;
+
+  align-self: center;
+
+  width: 32px;
+  height: 32px;
+
+  margin-left: 2px;
+
+  button {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    &:hover {
+      background: no-repeat center / 20px 20px
+        url(../../../assets/images/more.png) $comment-bg-color;
+
+      cursor: pointer;
+
+      + .comment__guide {
+        display: block;
+
+        top: -20px;
+        left: 50%;
+
+        width: 45px;
+
+        transform: translateX(-50%);
+      }
+    }
+
+    span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  }
+
+  .comment__menu {
+    position: absolute;
+    left: 50%;
+
+    display: none;
+
+    width: 330px;
+
+    padding: 8px;
+
+    background-color: $content-bg-color;
+
+    border-radius: 8px;
+
+    box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    z-index: 15;
+    transform: translateX(-30%);
+
+    &.comment__menu--show {
+      display: block;
+    }
+
+    &::after {
+      position: absolute;
+      top: -16px;
+      left: 30%;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-left: 8px solid transparent;
+      border-bottom: 8px solid $content-bg-color;
+      border-right: 8px solid transparent;
+      transform: translateX(-50%);
+    }
+
+    li {
+      padding: 12px 8px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: $comment-bg-color;
+      }
+    }
+  }
+}
+
+.comment__bottoms {
   display: flex;
   flex-flow: row nowrap;
 
   margin-left: 42px;
   padding: 3px 0;
 
-  button {
+  button,
+  .comment__time {
     margin: 0 6px;
 
     font-size: $text-small-size;
@@ -97,4 +193,41 @@
       color: $text-accent-color;
     }
   }
+
+  .comment__time {
+    position: relative;
+
+    padding-top: 2px;
+
+    &:hover {
+      .comment__guide {
+        display: block;
+
+        top: calc(100% + 3px);
+        left: 50%;
+
+        width: 150px;
+
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+.comment__guide {
+  position: absolute;
+
+  display: none;
+
+  padding: 8px 0;
+
+  background-color: rgba(255, 255, 255, 0.7);
+
+  border-radius: 8px;
+
+  color: $text-dark-color;
+  font-size: $text-medium-size;
+  text-align: center;
+
+  z-index: 20;
 }
