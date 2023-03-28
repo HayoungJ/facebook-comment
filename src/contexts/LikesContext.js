@@ -13,8 +13,14 @@ export const LikesProvider = ({ children }) => {
     setLikes(updatedLikes);
   };
 
+  const deleteLike = (id) => {
+    let deletedLikes = likes ? [...likes] : [];
+    deletedLikes = deletedLikes.filter((like) => like !== id);
+    setLikes(deletedLikes);
+  };
+
   return (
-    <LikesContext.Provider value={[likes, handleLike]}>
+    <LikesContext.Provider value={[likes, handleLike, deleteLike]}>
       {children}
     </LikesContext.Provider>
   );

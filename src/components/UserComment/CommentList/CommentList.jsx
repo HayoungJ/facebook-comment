@@ -11,7 +11,7 @@ import { useComments } from '../../../contexts/CommentsContext';
 
 const CommentList = ({ comments, parent = null }) => {
   const [rawComments, setComments] = useComments();
-  const [likes, handleLike] = useLikes();
+  const [likes, handleLike, deleteLike] = useLikes();
   const [menu, setMenu] = useMenu();
   const { replies, setReplies, focusedReply, setFocusedReply } = useReplies();
 
@@ -35,6 +35,7 @@ const CommentList = ({ comments, parent = null }) => {
       (comment) => comment.id !== id && comment.parent !== id
     );
     setComments(updatedComments);
+    deleteLike(id);
   };
 
   const getTimeDiff = (time) => {
