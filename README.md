@@ -1,5 +1,9 @@
 # 페이스북 스타일의 댓글/답글
 
+## 배포 주소
+
+- https://hayoungj.github.io/facebook-comment/
+
 ## 사용 스택
 
 - React, Javascript, Sass/CSS-Module, Context API,
