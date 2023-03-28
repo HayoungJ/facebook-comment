@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# 페이스북 스타일의 댓글/답글
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 사용 스택
 
-## Available Scripts
+- React, Javascript, Sass/CSS-Module, Context API,
 
-In the project directory, you can run:
+## 기본 형태
 
-### `yarn start`
+- 게시글 아래에 댓글과 답글이 표시됩니다.
+- 각 댓글/답글은 (새로고침 시점 기준으로) 얼마 전에 등록되었는지 확인할 수 있습니다. 마우스 오버 시 정확한 등록 시각도 확인 가능합니다.
+- 각 댓글/답글은 localStorage에 보관되어, 동일한 브라우저에서라면 새로고침, 브라우저 종료 시에도 유지됩니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 좋아요
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 좋아요 클릭 시 좋아요 버튼이 파란색으로 변하고, 댓글 우측에 좋아요 아이콘이 표시됩니다.
+- 각 댓글/답글에 좋아요를 눌렀는지 여부는 localStorage에 보관되어, 동일한 브라우저에서라면 새로고침, 브라우저 종료 시에도 유지됩니다.
 
-### `yarn test`
+## 댓글 남기기
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 댓글 입력창을 이용해 댓글을 남길 수 있습니다.
+- 댓글 등록은 버튼 클릭/엔터키 입력을 통해 할 수 있습니다.
+- 만약 줄을 바꾸고 싶다면, shift/crtl/alt/meta키와 엔터키를 조합해 사용하면 됩니다.
 
-### `yarn build`
+## 답글 남기기
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 댓글 하위에는 답글을 남길 수 있습니다.
+- '답글'의 답글 달기를 선택할 경우, 해당 답글의 부모되는 댓글 하위에 답글이 남겨지게 됩니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 댓글/답글 삭제
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 모든 댓글과 답글은 삭제 가능합니다.
+- 만약 댓글 삭제 시, 댓글 하위의 답글들도 모두 함께 삭제가 됩니다.
